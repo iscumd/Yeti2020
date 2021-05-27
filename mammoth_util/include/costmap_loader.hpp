@@ -25,6 +25,8 @@
 
 #include <memory>
 
+#include <opencv2/opencv.hpp>
+
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/occupancy_grid.hpp"
 
@@ -36,7 +38,22 @@ public:
   explicit CostmapLoader(rclcpp::NodeOptions options);
 
 private:
+  // params
+  std::string costmap_filepath_param_;
+
+  // vars
+  cv::Mat costmap_image_;
+  rclcpp::Time costmap_load_time_;
+  int costmap_width_;
+  int costmap_height_;
+  int costmap_resolution_;
+
+  // pubs subs
+  rclcpp::TimerBase::SharedPtr costmap_timer_;
   rclcpp::Publisher<nav_msgs::msg::OccupancyGrid>::SharedPtr costmap_publisher_;
+
+  //callbacks
+  void costmap_timer_callback();
 };
 }  // namespace mammoth_util
 

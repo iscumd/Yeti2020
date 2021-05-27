@@ -22,7 +22,10 @@ endif()
 ################################################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(OpenCV REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 
 ################################################################################
@@ -31,9 +34,16 @@ find_package(nav_msgs REQUIRED)
 
 ################################################################################
 
-add_executable(costmap_loader src/costmap_loader.cpp)
-ament_target_dependencies(costmap_loader rclcpp nav_msgs)
-target_include_directories(costmap_loader PUBLIC
+add_executable(mammoth_util src/costmap_loader.cpp)
+ament_target_dependencies(
+  mammoth_util
+  rclcpp
+  std_msgs
+  geometry_msgs
+  nav_msgs
+  OpenCV
+)
+target_include_directories(mammoth_util PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
@@ -49,7 +59,7 @@ install(
 )
 
 install(
-  TARGETS costmap_loader
+  TARGETS mammoth_util
   DESTINATION lib/${PROJECT_NAME}
 )
 
