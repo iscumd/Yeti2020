@@ -34,16 +34,18 @@ find_package(nav_msgs REQUIRED)
 
 ################################################################################
 
-add_executable(mammoth_util src/costmap_loader.cpp)
+
+# costmap loader
+add_executable(costmap_loader src/costmap_loader.cpp)
 ament_target_dependencies(
-  mammoth_util
+  costmap_loader
   rclcpp
   std_msgs
   geometry_msgs
   nav_msgs
   OpenCV
 )
-target_include_directories(mammoth_util PUBLIC
+target_include_directories(costmap_loader PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
@@ -54,12 +56,12 @@ target_include_directories(mammoth_util PUBLIC
 ################################################################################
 
 install(
-  DIRECTORY launch config data
+  DIRECTORY launch config
 	DESTINATION share/${PROJECT_NAME}
 )
 
 install(
-  TARGETS mammoth_util
+  TARGETS costmap_loader
   DESTINATION lib/${PROJECT_NAME}
 )
 
