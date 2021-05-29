@@ -36,12 +36,12 @@ CostmapLoader::CostmapLoader(rclcpp::NodeOptions options)
 {
   // params
   this->declare_parameter<std::string>("costmap_filepath", "costmap.pgm");
-  this->get_parameter("my_parameter", costmap_filepath_param_);
+  this->get_parameter("costmap_filepath", costmap_filepath_param_);
 
   // load image into cv::Mat
   costmap_image_ = cv::imread(costmap_filepath_param_, cv::IMREAD_GRAYSCALE);
-  costmap_image_.convertTo(costmap_image_, CV_8U);
-  cv::normalize(costmap_image_, costmap_image_, 0, 255, cv::NORM_MINMAX);
+  //costmap_image_.convertTo(costmap_image_, CV_8U);
+  //cv::normalize(costmap_image_, costmap_image_, 0, 255, cv::NORM_MINMAX);
   costmap_load_time_ = this->get_clock()->now();
   costmap_width_ = costmap_image_.size().width;
   costmap_height_ = costmap_image_.size().height;
