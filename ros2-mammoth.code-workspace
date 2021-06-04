@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../lidar_processor"
+<<<<<<< HEAD
+=======
+		},
+		{
+			"path": "../navigation2"
+>>>>>>> get slam and nav launching
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"memory": "cpp"
+		}
+	}
+}
