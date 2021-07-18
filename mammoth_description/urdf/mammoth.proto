@@ -1,0 +1,709 @@
+#VRML_SIM R2020b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the mammoth
+# Extracted from: /home/dcutting/ros_ws/foxy/src/mammoth/mammoth_description/urdf/mammoth.urdf
+
+PROTO mammoth [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 1 0 0
+  field  SFString    name            "mammoth"  # Is `Robot.name`.
+  field  SFString    controller      "void"     # Is `Robot.controller`.
+  field  MFString    controllerArgs  []         # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""         # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE      # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE       # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE      # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Shape {
+        appearance PBRAppearance {
+          baseColor 0.500000 0.500000 0.500000
+          transparency 0.000000
+          roughness 1.000000
+          metalness 0
+          emissiveColor 0.000000 0.000000 0.000000
+        }
+        geometry Box {
+           size 0.8 0.4 0.3
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor 0.300000 -0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_bl"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_bl_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.300000 -0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_bl"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor -0.150000 -0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_pl"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_pl_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.150000 -0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_pl"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor 0.000000 -0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_ml"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_ml_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.000000 -0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_ml"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor 0.150000 -0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_al"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_al_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.150000 -0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_al"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor -0.300000 -0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_fl"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_fl_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.300000 -0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_fl"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor 0.300000 0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_br"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_br_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.300000 0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_br"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor -0.150000 0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_pr"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_pr_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.150000 0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_pr"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor 0.000000 0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_mr"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_mr_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.000000 0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_mr"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor 0.150000 0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_ar"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_ar_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.150000 0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_ar"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 -1.000000 -0.000796
+          anchor -0.300000 0.237500 -0.100000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "base_to_wheel_fr"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "base_to_wheel_fr_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.300000 0.237500 -0.100000
+          rotation 0.000001 -0.707388 0.706825 3.141591
+          children [
+            Transform {
+              translation 0.000000 0.000000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    transparency 0.000000
+                    roughness 1.000000
+                    metalness 0
+                    emissiveColor 0.000000 0.000000 0.000000
+                  }
+                  geometry Cylinder {
+                    radius 0.125
+                    height 0.075
+                  }
+                }
+              ]
+            }
+          ]
+          name "wheel_fr"
+          boundingObject Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.125
+                height 0.075
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 1.100000
+            inertiaMatrix [
+              4.812500e-03 4.812500e-03 8.593750e-03
+              0.000000e+00 0.000000e+00 0.000000e+00
+            ]
+          }
+        }
+      }
+      Solid {
+        translation 0.000000 0.000000 0.175000
+        rotation 0.000000 1.000000 0.000000 0.000000
+        children [
+          Transform {
+            translation 0.000000 0.000000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.500000 0.500000 0.500000
+                  transparency 0.000000
+                  roughness 1.000000
+                  metalness 0
+                  emissiveColor 0.000000 0.000000 0.000000
+                }
+                geometry Cylinder {
+                  radius 0.025
+                  height 0.05
+                }
+              }
+            ]
+          }
+        ]
+        name "laser_link"
+        boundingObject Transform {
+          translation 0.000000 0.000000 0.000000
+          rotation 1.000000 0.000000 0.000000 1.570796
+          children [
+            Cylinder {
+              radius 0.025
+              height 0.05
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.000010
+          inertiaMatrix [
+            1.000000e-06 1.000000e-06 1.000000e-06
+            0.000000e+00 0.000000e+00 0.000000e+00
+          ]
+        }
+      }
+    ]
+    name IS name 
+    boundingObject Box {
+       size 0.800000 0.400000 0.300000
+    }
+    physics Physics {
+      density -1
+      mass 45.000000
+      inertiaMatrix [
+        2.737500e+00 3.000000e+00 9.375000e-01
+        0.000000e+00 0.000000e+00 0.000000e+00
+      ]
+    }
+  }
+}
